@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umor — Stanje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/zavrsni/css/style.css">
+</head>
+<body class="page-umor">
+
+  <header class="mod-top-bar">
+    <a class="natrag-link" href="/zavrsni/html/naslovna.html">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Natrag
+    </a>
+    <p class="mod-naslov">Umor</p>
+    <div class="sesija-prikaz">Sesija: <strong id="sesija-brojac">00:00</strong></div>
+  </header>
+
+  <p class="mod-subtitle">Uzmi pauzu i radi lagano</p>
+
+  <div class="fokus-main">
+    <div class="fokus-grid">
+
+      <div class="fokus-kartica">
+        <p class="kartica-naslov">Odmor</p>
+
+        <div class="timer-ring-wrap">
+          <svg class="timer-ring" viewBox="0 0 200 200">
+            <circle class="timer-ring-track" cx="100" cy="100" r="90"/>
+            <circle class="timer-ring-progress" cx="100" cy="100" r="90" id="ring-progress"/>
+          </svg>
+          <div class="timer-center">
+            <div class="timer-display" id="timer-prikaz">05:00</div>
+            <span class="timer-sub" id="timer-sub">minuta odmora</span>
+          </div>
+        </div>
+
+        <p class="odmor-dah" id="odmor-dah">Diši polako...</p>
+
+        <div class="timer-presets">
+          <button class="timer-preset aktivan" data-preset="300">5 min</button>
+          <button class="timer-preset" data-preset="600">10 min</button>
+          <button class="timer-preset" data-preset="900">15 min</button>
+        </div>
+
+        <div class="timer-quick-row">
+          <button class="timer-quick" data-dodaj="30">+0:30</button>
+          <button class="timer-quick" data-dodaj="60">+1:00</button>
+          <button class="timer-quick" data-dodaj="300">+5:00</button>
+        </div>
+
+        <button class="timer-gumb" id="timer-gumb">
+          <svg viewBox="0 0 24 24" id="timer-ikona" fill="white">
+            <polygon points="6,4 20,12 6,20"/>
+          </svg>
+          <span id="timer-gumb-tekst">Pokreni odmor</span>
+        </button>
+
+        <button class="timer-reset" id="timer-reset">Resetiraj</button>
+        <button class="timer-reset" id="timer-skip-odmor" style="margin-top:4px;color:var(--umor)">Preskoči odmor →</button>
+      </div>
+
+      <div class="fokus-kartica">
+        <p class="kartica-naslov">Zadaci</p>
+
+        <div class="umor-checkin skriveno" id="umor-checkin">
+          <p class="umor-checkin-pitanje">Kako se osjećaš sada?</p>
+          <div class="umor-checkin-gumbi">
+            <button class="umor-checkin-btn umor-checkin-da" id="btn-osvjezen">😊 Bolje, nastavi</button>
+            <button class="umor-checkin-btn umor-checkin-ne" id="btn-jos-odmora">😴 Trebam još odmora</button>
+          </div>
+        </div>
+
+        <div class="umor-tip skriveno" id="umor-tip">
+          <span class="umor-tip-ikona">🌿</span>
+          <span>Počni s lakšim zadatcima. Nema žurbe.</span>
+        </div>
+
+        <div class="umor-lock-banner" id="lock-banner">
+          <span id="lock-ikona">🔒</span>
+          <span id="lock-poruka">Pokreni odmor da otključaš zadatke</span>
+        </div>
+
+        <div class="todo-input-row">
+          <input class="todo-input" id="todo-input" type="text" placeholder="Dodaj lakši zadatak..." maxlength="120" autocomplete="off" disabled>
+          <button class="todo-dodaj" id="todo-dodaj" aria-label="Dodaj zadatak" disabled>
+            <svg viewBox="0 0 24 24" fill="none">
+              <line x1="12" y1="5" x2="12" y2="19" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+              <line x1="5" y1="12" x2="19" y2="12" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="todo-progress-wrap" id="todo-progress-wrap" style="display:none">
+          <div class="todo-progress-bar">
+            <div class="todo-progress-fill" id="todo-progress-fill"></div>
+          </div>
+          <span class="todo-progress-tekst" id="todo-progress-tekst">0/0</span>
+        </div>
+
+        <ul class="todo-lista zakljucano" id="todo-lista"></ul>
+      </div>
+
+    </div>
+
+    <div class="quotes-wrap"><div class="quotes-box" id="quotes-box"></div></div>
+  </div>
+
+  <div class="trenutni-bar" id="trenutni-bar">
+    <span class="bar-label">Trenutni zadatak</span>
+    <span class="bar-naziv" id="bar-naziv"></span>
+    <span class="bar-status bar-status--active" id="bar-status">U tijeku</span>
+  </div>
+
+  <script src="/zavrsni/js/umor.js"></script>
+  <script src="/zavrsni/js/citati.js"></script>
+</body>
+</html>

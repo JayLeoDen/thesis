@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preopterećenost — Stanje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/zavrsni/css/style.css">
+</head>
+<body class="page-preopt">
+
+  <header class="mod-top-bar">
+    <a class="natrag-link" href="/zavrsni/html/naslovna.html">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Natrag
+    </a>
+    <p class="mod-naslov">Preopterećenost</p>
+    <div class="sesija-prikaz">Sesija: <strong id="sesija-brojac">00:00</strong></div>
+  </header>
+
+  <p class="mod-subtitle">Smanji broj zadataka i kreni sa jednim</p>
+
+  <div class="fokus-main">
+
+    <div id="planiranje-view">
+      <div class="fokus-grid">
+
+        <div class="fokus-kartica">
+          <p class="kartica-naslov">Kako funkcionira</p>
+          <div class="preopt-koraci">
+            <div class="preopt-korak">
+              <span class="preopt-korak-num">1</span>
+              <div>
+                <strong>Napiši sve što te muči</strong>
+                <p>Bez filtriranja — sve što ti leži na umu.</p>
+              </div>
+            </div>
+            <div class="preopt-korak">
+              <span class="preopt-korak-num">2</span>
+              <div>
+                <strong>Pritisni Kreni</strong>
+                <p>Lista nestaje i dobiješ jedan zadatak odjednom.</p>
+              </div>
+            </div>
+            <div class="preopt-korak">
+              <span class="preopt-korak-num">3</span>
+              <div>
+                <strong>Jedan po jedan</strong>
+                <p>Nema žurbe. Svaki završeni zadatak je pobjeda.</p>
+              </div>
+            </div>
+          </div>
+          <p class="preopt-info-citat">„Jedini način da jedeš slona je zalogaj po zalogaj."</p>
+        </div>
+
+        <div class="fokus-kartica">
+          <p class="kartica-naslov">Zadaci</p>
+          <div class="todo-input-row">
+            <input class="todo-input" id="todo-input" type="text" placeholder="Što te muči? Napiši sve..." maxlength="120" autocomplete="off">
+            <button class="todo-dodaj" id="todo-dodaj" aria-label="Dodaj zadatak">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="12" y1="5" x2="12" y2="19" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+                <line x1="5" y1="12" x2="19" y2="12" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <ul class="todo-lista" id="todo-lista"></ul>
+          <p class="preopt-greska skriveno" id="preopt-greska">Dodaj barem jedan zadatak za početak.</p>
+          <button class="preopt-kreni-btn" id="btn-kreni">Kreni →</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="fokus-view" class="preopt-fokus-view skriveno">
+
+      <div class="preopt-prog-wrap">
+        <div class="preopt-prog-bar">
+          <div class="preopt-prog-fill" id="prog-fill"></div>
+        </div>
+        <span class="preopt-prog-tekst" id="prog-tekst">0/0</span>
+      </div>
+
+      <div class="fokus-kartica preopt-zadatak-card" id="zadatak-card">
+        <p class="kartica-naslov">Trenutni zadatak</p>
+        <h2 class="preopt-zadatak-naziv" id="zadatak-naziv">—</h2>
+        <div class="preopt-btn-row">
+          <button class="preopt-btn preopt-btn--done" id="btn-zavrsio">✓ Završio sam</button>
+          <button class="preopt-btn preopt-btn--skip" id="btn-iduci">Idući →</button>
+        </div>
+        <button class="preopt-natrag-link" id="btn-natrag">← Natrag na listu</button>
+      </div>
+
+      <div class="fokus-kartica preopt-zadatak-card preopt-done-screen skriveno" id="done-screen">
+        <div class="preopt-done-ikona">🎉</div>
+        <h2 class="preopt-zadatak-naziv">Sve je završeno!</h2>
+        <p class="preopt-done-sub">Odlično! Prošao si kroz sve zadatke korak po korak.</p>
+        <button class="preopt-btn preopt-btn--done" id="btn-nova-lista">Nova lista</button>
+      </div>
+
+    </div>
+
+    <div class="quotes-wrap"><div class="quotes-box" id="quotes-box"></div></div>
+  </div>
+
+
+  <div class="trenutni-bar" id="trenutni-bar">
+    <span class="bar-label">Odabrani zadatak</span>
+    <span class="bar-naziv" id="bar-naziv"></span>
+    <span class="bar-status bar-status--active" id="bar-status">Na listi</span>
+  </div>
+
+  <script src="/zavrsni/js/preopterecenost.js"></script>
+  <script src="/zavrsni/js/citati.js"></script>
+</body>
+</html>

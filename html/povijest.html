@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Povijest — Stanje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/zavrsni/css/style.css">
+</head>
+<body class="page-povijest">
+
+  <header class="mod-top-bar">
+    <a class="natrag-link" href="/zavrsni/html/naslovna.html">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M5 12l7 7M5 12l7-7" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Natrag
+    </a>
+    <p class="mod-naslov">Povijest</p>
+    <span class="pov-streak" id="pov-streak"></span>
+  </header>
+
+  <div class="pov-main">
+
+    <div class="pov-stats-row" id="pov-stats-row"></div>
+
+    <div class="pov-summary-card">
+      <div class="pov-period-row">
+        <p class="kartica-naslov" style="margin:0">Pregled po modovima</p>
+        <div class="pov-period-btns">
+          <button class="pov-period-btn aktivan" id="btn-tjedan">Ovaj tjedan</button>
+          <button class="pov-period-btn" id="btn-mjesec">Ovaj mjesec</button>
+          <button class="pov-period-btn" id="btn-sve-vr">Sve</button>
+        </div>
+      </div>
+      <div class="pov-chart" id="pov-chart"></div>
+    </div>
+
+    <div class="pov-tablica-card">
+      <div class="pov-tablica-header">
+        <p class="kartica-naslov" style="margin:0">Sve sesije</p>
+        <span class="pov-ukupno" id="pov-ukupno"></span>
+      </div>
+      <div class="pov-tablica-wrap">
+        <table class="pov-tablica">
+          <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Početak</th>
+              <th>Mod</th>
+              <th>Trajanje</th>
+            </tr>
+          </thead>
+          <tbody id="pov-tbody"></tbody>
+        </table>
+        <div class="pov-prazno skriveno" id="pov-prazno">
+          <strong>Nema zabilježenih sesija</strong>
+          Kada kreneš sa korištenjem moda ovdje će se pojaviti tvoja povijest učenja.
+        </div>
+      </div>
+      <button class="pov-brisi-btn" id="btn-brisi">Izbriši cijelu povijest</button>
+    </div>
+
+  </div>
+
+  <script src="/zavrsni/js/povijest.js"></script>
+</body>
+</html>

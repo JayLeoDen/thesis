@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kako se osjećaš? - Naslovna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+    <link rel="stylesheet" href="/zavrsni/css/style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <span class="wordmark">Dobrodošli</span>
+        <a class="history-pill" href="/zavrsni/html/povijest.html" aria-label="Otvori povijest sesija">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <line x1="5" y1="7" x2="19" y2="7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                <line x1="5" y1="17" x2="13" y2="17" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+            Povijest
+        </a>
+    </header>
+
+    <main>
+        <p class="eyebrow">Prije nego počneš</p>
+        <h1>Kako se osjećaš tijekom učenja?</h1>
+        <p class="subhead">Odaberi stanje za prilagodbu rada.</p>
+        <div class="mode-grid">
+            <a class="mode-card mode-card--fokus" href="/zavrsni/html/fokus.html" data-mode="fokus">
+                <span class="mode-card__icon-wrap">
+                    <span class="mode-card__halo" aria-hidden="true"></span>
+                    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                        <circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="2.4"/>
+                        <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2.4"/>
+                        <circle cx="24" cy="24" r="3" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="mode-card__label">Fokus</span>
+                <span class="mode-card__desc">Rad bez distrakcija</span>
+            </a>
+            <a class="mode-card mode-card--umor" href="/zavrsni/html/umor.html" data-mode="umor">
+                <span class="mode-card__icon-wrap">
+                    <span class="mode-card__halo" aria-hidden="true"></span>
+                    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                         <path d="M42 25.58A18 18 0 1 1 22.42 6 14 14 0 0 0 42 25.58z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                         <path d="M6 12h7l-7 7h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="mode-card__label">Umor</span>
+                <span class="mode-card__desc">Uzmi pauzu i radi lagano</span>
+            </a>
+            <a class="mode-card mode-card--preopt" href="/zavrsni/html/preopterecenost.html" data.mode="preopterecenost">
+                <span class="mode-card__icon-wrap">
+                    <span class="mode-card__halo" aria-hidden="true"></span>
+                    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                        <rect x="10" y="20" width="22" height="16" rx="3" transform="rotate(-8 21 28)" stroke="currentColor" stroke-width="2.2"/>
+                        <rect x="13" y="14" width="22" height="16" rx="3" transform="rotate(4 24 22)" stroke="currentColor" stroke-width="2.2"/>
+                        <rect x="14" y="9" width="22" height="16" rx="3" stroke="currentColor" stroke-width="2.2"/>
+                    </svg>
+                </span>
+                <span class="mode-card__label">Preopterećenost</span>
+                <span class="mode-card__desc">Smanji broj zadataka, kreni s jednim</span>
+            </a>
+            <a class="mode-card mode-card--motiv" href="/zavrsni/html/motivacija.html" data-mode="motivacija">
+                <span class="mode-card__icon-wrap">
+                    <span class="mode-card__halo" aria-hidden="true"></span>
+                    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                        <rect x="6" y="16" width="30" height="16" rx="4" transform="rotate(-8 21 28)" stroke="currentColor" stroke-width="2.4"/>
+                        <rect x="36" y="21" width="4" height="6" rx="1" fill="currentColor"/>
+                        <rect x="10" y="20" width="6" height="8" rx="1" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="mode-card__label">Slaba motivacija</span>
+                <span class="mode-card__desc">Jedan po jedan zadatak</span>
+            </a>
+        </div>
+        <p class="footnote">Tvoj odabir, datum i trajanje sesije spremaju se u "Povijest".</p>
+    </main>
+
+    <script src="/zavrsni/js/script.js"></script>
+
+</body>
+</html>
