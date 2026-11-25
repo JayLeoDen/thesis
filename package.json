@@ -1,0 +1,27 @@
+{
+  "name": "thesis",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server/index.js --dev",
+    "build": "vite build",
+    "preview": "node server/index.js",
+    "start": "node server/index.js",
+    "db:init": "node server/postavi-bazu.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "@zip.js/zip.js": "^2.25.0",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5",
+    "mariadb": "^3.5.5",
+    "nodemailer": "^10.6.1",
+    "pdfjs-dist": "^6.5.438"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}

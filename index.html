@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#262538">
+  <title>Plan učenja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="top-bar">
+    <a class="wordmark" href="#pocetak">Plan učenja</a>
+    <nav aria-label="Glavna navigacija">
+      <a class="history-pill" href="#povijest">Moji planovi</a>
+      <button class="history-pill" type="button" id="admin-gumb" aria-controls="admin-panel" hidden>Administracija</button>
+      <button class="history-pill" type="button" id="racun-gumb" disabled>Račun</button>
+    </nav>
+  </header>
+
+  <main id="pocetak">
+    <div class="uvod">
+      <h1>Od materijala do plana učenja</h1>
+      <p>Prenesi dokument i dobit ćeš zadatke prema gradivu, cilju i vremenu koje imaš.</p>
+    </div>
+
+    <div class="radni-prostor">
+      <section class="kartica" aria-labelledby="postavke-naslov">
+        <h2 id="postavke-naslov">Pripremi gradivo</h2>
+        <form id="postavke">
+          <label class="datoteka" for="datoteka">
+            <strong>Odaberi dokument</strong>
+            <span>Word (.docx), PowerPoint (.pptx) ili PDF · do 15 MB</span>
+          </label>
+          <input id="datoteka" type="file" accept=".docx,.pptx,.pdf" required>
+          <div class="postavke-red">
+            <label for="cilj">Cilj učenja
+              <select id="cilj">
+                <option value="razumijevanje">Razumjeti gradivo</option>
+                <option value="ponavljanje">Pripremiti se za ispit</option>
+                <option value="zadaci">Riješiti zadatke iz dokumenta</option>
+              </select>
+            </label>
+            <label for="minute">Vrijeme na raspolaganju
+              <select id="minute">
+                <option value="10">10 min</option>
+                <option value="20" selected>20 min</option>
+                <option value="35">35 min</option>
+                <option value="50">50 min</option>
+              </select>
+            </label>
+          </div>
+          <label for="stanje">Kako ti danas ide učenje?
+            <select id="stanje">
+              <option value="auto">Preporuči način rada</option>
+              <option value="fokus">Dobro mi ide fokus</option>
+              <option value="umor">Umoran sam</option>
+              <option value="preopterecenost">Previše je gradiva</option>
+              <option value="motivacija">Teško mi je početi</option>
+            </select>
+          </label>
+          <button class="gumb" id="izradi" type="submit">Izradi plan</button>
+          <p class="poruka" id="unos-poruka" role="status"></p>
+          <p class="napomena">Dokument se čita u pregledniku. Kad spremiš plan, na račun se spremaju naziv, odabrani isječci i napredak.</p>
+        </form>
+      </section>
+
+      <section class="kartica plan" id="plan" aria-labelledby="plan-naslov">
+        <h2 id="plan-naslov" tabindex="-1">Tvoj plan</h2>
+        <p id="plan-prazno" class="plan-prazno">Ovdje će se pojaviti preporučeni način rada i prvi zadatak iz dokumenta.</p>
+        <div id="plan-sadrzaj" hidden>
+          <p id="naziv-dokumenta" class="naziv-dokumenta"></p>
+          <div class="plan-podaci">
+            <span class="oznaka" id="mod"></span>
+            <span id="gradivo"></span>
+          </div>
+          <p id="razlog"></p>
+          <div class="napredak">
+            <progress id="napredak" value="0" max="1" aria-label="Dovršeni koraci"></progress>
+            <span id="napredak-tekst"></span>
+          </div>
+          <div id="korak">
+            <p class="izvor" id="izvor"></p>
+            <h3 id="uputa" tabindex="-1"></h3>
+            <details id="isjecak">
+              <summary>Prikaži tekst iz dokumenta</summary>
+              <blockquote id="tekst"></blockquote>
+            </details>
+            <p id="podrska"></p>
+            <div class="akcije">
+              <button type="button" class="gumb" id="dovrsi">Označi kao dovršeno</button>
+              <button type="button" class="sporedni" id="preskoci">Vrati se kasnije</button>
+            </div>
+          </div>
+          <p id="plan-zavrsen" hidden>Dovršio si sve korake ovog plana.</p>
+          <ol id="redoslijed" class="redoslijed" aria-label="Koraci u planu"></ol>
+          <button type="button" id="spremi" class="sporedni">Spremi plan</button>
+        </div>
+        <p id="plan-poruka" class="poruka" role="status"></p>
+      </section>
+    </div>
+
+    <section id="povijest" class="kartica povijest" aria-labelledby="povijest-naslov">
+      <h2 id="povijest-naslov">Moji planovi</h2>
+      <p id="povijest-poruka" class="poruka" role="status">Provjeravam vezu s računom…</p>
+      <ul id="spremljeni" class="spremljeni"></ul>
+      <div id="stara-povijest" hidden>
+        <h3>Sesije iz prethodne verzije</h3>
+        <ul id="stare-sesije" class="spremljeni"></ul>
+      </div>
+    </section>
+    <section id="admin-panel" class="kartica povijest" aria-labelledby="admin-naslov" hidden>
+      <h2 id="admin-naslov" tabindex="-1">Administracija</h2>
+      <p id="admin-poruka" class="poruka" role="status"></p>
+      <div class="admin-raspored">
+        <div class="admin-stupac">
+          <label>Korisnički računi
+            <select id="admin-korisnici"></select>
+          </label>
+          <button class="sporedni" type="button" id="admin-novi-racun">Novi račun</button>
+          <form id="admin-racun">
+            <label>E-adresa<input name="email" type="email" maxlength="254" required></label>
+            <label>Uloga<select name="uloga"><option value="korisnik">Korisnik</option><option value="admin">Administrator</option></select></label>
+            <label>Lozinka<input name="lozinka" type="password" minlength="8" maxlength="128" autocomplete="new-password"></label>
+            <div class="akcije">
+              <button class="gumb" type="submit">Spremi račun</button>
+              <button class="sporedni" type="button" id="admin-obrisi-racun">Izbriši račun</button>
+            </div>
+          </form>
+        </div>
+        <div class="admin-stupac" id="admin-planovi-stupac" hidden>
+          <label>Planovi odabranog korisnika
+            <select id="admin-planovi"></select>
+          </label>
+          <button class="sporedni" type="button" id="admin-novi-plan">Novi plan</button>
+          <form id="admin-plan" hidden>
+            <label>Naziv<input name="naziv" maxlength="240" required></label>
+            <label>Način rada<select name="mod"></select></label>
+            <label>Cilj<select name="cilj"></select></label>
+            <label>Minute<select name="minute"></select></label>
+            <label>Obrazloženje<textarea name="razlog" maxlength="300" required></textarea></label>
+            <div id="admin-koraci"></div>
+            <button type="button" class="sporedni" id="admin-dodaj-korak">Dodaj korak</button>
+            <div class="akcije">
+              <button class="gumb" type="submit">Spremi plan</button>
+              <button class="sporedni" type="button" id="admin-obrisi-plan">Izbriši plan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="racun" aria-labelledby="racun-naslov">
+    <div class="racun-zaglavlje">
+      <h2 id="racun-naslov">Račun za učenje</h2>
+      <button class="sporedni" type="button" id="zatvori-racun">Zatvori</button>
+    </div>
+    <form id="prijava">
+      <label for="email">E-adresa
+        <input type="email" id="email" autocomplete="email" required>
+      </label>
+      <label for="lozinka">Lozinka
+        <input type="password" id="lozinka" autocomplete="current-password" minlength="8" maxlength="128" required>
+      </label>
+      <div class="akcije">
+        <button type="submit" class="gumb" value="prijava">Prijavi se</button>
+        <button type="submit" class="sporedni" value="registracija">Izradi račun</button>
+      </div>
+      <button type="button" class="tekst-gumb" id="obnovi-lozinku" hidden>Pošalji poveznicu za obnovu lozinke</button>
+    </form>
+    <form id="nova-lozinka" hidden>
+      <label for="nova-lozinka-polje">Nova lozinka
+        <input type="password" id="nova-lozinka-polje" autocomplete="new-password" minlength="8" maxlength="128" required>
+      </label>
+      <button type="submit" class="gumb" id="spremi-lozinku">Postavi novu lozinku</button>
+    </form>
+    <div id="prijavljeni" hidden>
+      <p id="korisnik-email"></p>
+      <button type="button" id="odjava" class="sporedni">Odjavi se</button>
+    </div>
+    <p class="poruka" id="racun-poruka" role="status"></p>
+  </dialog>
+
+  <script type="module" src="./js/script.js"></script>
+</body>
+</html>
